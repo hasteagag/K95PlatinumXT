@@ -21,5 +21,12 @@ Clicking the Brightness button on the OSK will rotate between what I beleive the
 
 Clicking the Win Lock button on the OSK will cease updating the colors on the keyboard reducing system overhead as this is a somewhat involved and in efficient task as written.  Efficiencies could be realized by by calling the SDK functions from AHK using DLL call rather than this roundabout method and relying on the windows API, although that appears somewhat complex to implement.
 
-Finally, the steak and potatoes, we need to send events from our key presses on the OSK.  This is 
+Finally, the steak and potatoes, we need to send events from our key presses on the OSK.  This is a two step process:
 
+First grab the Hwnd of the currently in focus window prior to display of the OSK.  Under normal circumstances, the keyboard fires to the window with focus, so that is what we intend to replicate.
+
+Second, we grab the key pressed via the event sent to AHK from Neutron (from Javascript) as its name is roughly associated with the Autohotkey keyname by classname, then to get more specific...and flexible, we have an array of keys that get looped over and matches will mean the user pressed that key and its corresponding key should be emitted, after refocusing the active window.  
+
+Other approaches worth looking at might be controlsend, so the OSK can stay active, however your mileage may vary as some applications seek keypress messags differently.  With modifiers, we test for their actual presence on the real keyboard, but also allow one second time outs (certianly can be changed to your liking) to register modifiers on the OSK.  One may want to restart the timer for all modifiers if subsequent modifiers are pressed, as that may be quite tight in multi modifier key combinations, but save that for a later date.
+
+Some bugs may exist and feedback is welcome.
