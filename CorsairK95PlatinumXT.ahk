@@ -33,6 +33,7 @@ else {
 	PID:=ErrorLevel
 	WinHide,ahk_pid %PID%
 }
+lastHwndMacro:=WinExist("A")
 requestKBUpdate()
 {
 	global neutron
@@ -188,8 +189,9 @@ MsgMonitor(wParam, lParam)
 	}
 	Return
 }
-^r::reload
+; ^r::reload
 ^`::
+	lastHwndMacro:=WinExist("A") ;this will end up with the neutron windows Hwnd if you hit it to hide, but I think that is ok
 	;think we need some test in here to see if user has already stopped the timer before hiding the OSK...
 	SetTimer, requestKBUpdate, % (toggle := !toggle) ? 100 : "Off"
 	toggle ? neutron.Show() : neutron.Hide()
@@ -310,14 +312,13 @@ sender(a)
 }
 z(neutron,event)
 {
-	lastHwndMacro:=WinExist("A")
 	switch event
 	{
 		case "Brightness":
 			allmaxBright()
 			t(neutron,"test")
 		case "WinLock":
-			SetTimer, requestKBUpdate, % (toggle := !toggle) ? 100 : "Off" ;wont turn back on why?
+			SetTimer, requestKBUpdate, % (toggle := !toggle) ? 100 : "Off"
 		case "Profile_Switch":
 			SetTimer, requestKBUpdate, Off
 			for each, item in RGBKeys
