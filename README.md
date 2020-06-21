@@ -29,3 +29,5 @@ Second, we grab the key pressed via the event sent to AHK from Neutron (from Jav
 Other approaches worth looking at might be ControlSend, so the OSK can stay active, however your mileage may vary as some applications seek keypress messages differently.  With modifiers, we test for their actual presence on the real keyboard, but also allow one second time outs (certainly can be changed to your liking) to register modifiers on the OSK.  We also restart the timer for all modifiers if subsequent modifiers are pressed, as that may be quite tight in multi modifier key combinations.
 
 Some bugs likely exist and feedback is welcome!
+
+Hotkey note:  The only hotkey present is CTRL and tilde/accent-grave/backtick/acute which shows and hides the OSK and stops and starts the key color updater.  This way it should not be burning clocks in the background.  You can change the update rate in the timer if you would like to use fewer system resources - or disable it entirely and you can do so out of the box by clicking the win lock button.
