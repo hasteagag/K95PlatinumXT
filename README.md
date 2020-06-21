@@ -26,6 +26,6 @@ First grab the Hwnd of the currently in focus window prior to display of the OSK
 
 Second, we grab the key pressed via the event sent to AHK from Neutron (from JavaScript) as its name is roughly associated with the AutoHotkey key name by class name, then to get more specific...and flexible, we have an array of keys that get looped over and matches will mean the user pressed that key and its corresponding key should be emitted, after refocusing the active window.  
 
-Other approaches worth looking at might be ControlSend, so the OSK can stay active, however your mileage may vary as some applications seek keypress messages differently.  With modifiers, we test for their actual presence on the real keyboard, but also allow one second time outs (certainly can be changed to your liking) to register modifiers on the OSK.  One may want to restart the timer for all modifiers if subsequent modifiers are pressed, as that may be quite tight in multi modifier key combinations, but save that for a later date.
+Other approaches worth looking at might be ControlSend, so the OSK can stay active, however your mileage may vary as some applications seek keypress messages differently.  With modifiers, we test for their actual presence on the real keyboard, but also allow one second time outs (certainly can be changed to your liking) to register modifiers on the OSK.  We also restart the timer for all modifiers if subsequent modifiers are pressed, as that may be quite tight in multi modifier key combinations.
 
 Some bugs likely exist and feedback is welcome!
