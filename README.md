@@ -2,7 +2,7 @@
 an on screen keyboard with appearance like the Corsair K95 Platinum XT
 
 this project utilizes G33kDude's Neutron Class in AutoHotkey.  His project is linked here:  https://github.com/G33kDude/Neutron.ahk
-and is a way to render HTML CSS JS (basically web content) inside IE11 via ActiveX through browser emulation.  It has two way communication allowing for a multitude of projects like this one. I have not incldued Neutron.ahk, but again you can check it out here: https://github.com/G33kDude/Neutron.ahk
+and is a way to render HTML CSS JS (basically web content) inside IE11 via ActiveX through browser emulation.  It has two way communication allowing for a multitude of projects like this one. I have not incldued Neutron.ahk (!!! it is required !!!), but again you can check it out here: https://github.com/G33kDude/Neutron.ahk
 
 Project endeavors to mimic the Corsair K95 Platinum XT(Disclaimer: I am not affiliated with Corsair in any way other than as a fanboy and they make fantastic hardware).
 
